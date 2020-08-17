@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: servico-aplicacao-noticia
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+  selector:
+    # tem que apontar para um pod, afinal, o loadBalancer tem que apontar para um serviço
+    name: servico-aplicacao-pod
