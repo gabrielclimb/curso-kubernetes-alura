@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: servico-aplicacao-noticia
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
-    - name: http
-      port: 80
+    - port: 80
   selector:
     # tem que apontar para um pod, afinal, o loadBalancer tem que apontar para um serviço
-    name: servico-aplicacao-pod
+    name: aplicacao-noticia-pod
