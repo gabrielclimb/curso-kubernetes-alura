@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: aplicacao-noticia-deployment
-        image: gabrielclimb/noticia-alura:v1
+        image: gabrielclimb/noticia-alura:v2
         ports:
         - containerPort: 80

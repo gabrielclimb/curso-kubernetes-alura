@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: servico-aplicacao-noticia
+  name: servico-aplicacao-sistema
 spec:
   type: LoadBalancer
   ports:
     - port: 80
   selector:
     # tem que apontar para um pod, afinal, o LoadBalancer tem que apontar para um serviço
-    name: aplicacao-noticia-pod
+    name: aplicacao-sistema-pod

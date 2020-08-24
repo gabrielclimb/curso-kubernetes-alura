@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: aplicacao-sistema-statefulset
+spec:
+  serviceName: aplicacao-sistema-statefulset
+  selector:
+    matchLabels:
+      name: aplicacao-sistema-statefulset
+  template:
+    metadata:
+      labels:
+        name: aplicacao-sistema-statefulset
+    spec:
+      containers:
+      - name: container-sistema-statefulset
+        image: gabrielclimb/sistema-alura:v1
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: uploads
+            mountPath: /var/www/html/uploads
+          - name: sessao  
+            mountPath: /tmp
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: permissao-uploads
+        - name: sessao
+          persistentVolumeClaim:
+            claimName: permissao-sessao
